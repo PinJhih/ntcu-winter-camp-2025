@@ -1,4 +1,5 @@
-requests
 python-dotenv
-discord
-google-generativeai
+requests==2.32.3
+grpcio==1.60.1
+discord==2.3.2
+google-generativeai==0.8.3
