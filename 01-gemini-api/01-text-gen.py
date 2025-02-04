@@ -23,11 +23,11 @@ model = genai.GenerativeModel(
     generation_config=generation_config,
 )
 
-# 開始聊天
-chat_session = model.start_chat(history=[])
+# 準備要給模型的訊息
+input_text = "什麼是 LLM?"
 
-# 傳送訊息
-response = chat_session.send_message("什麼是 LLM?")
+# 傳送給 Gemini
+response = model.generate_content(input_text)
 
-# 顯示模型回應的訊息
+# 將結果顯示在 terminal
 print(response.text)
