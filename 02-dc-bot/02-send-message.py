@@ -22,14 +22,18 @@ async def on_message(message):
     author = message.author
     channel = message.channel
     content = message.content
+    print(f"{author} 在 {channel}: {content}")
 
     # 如果訊息發送者是 bot 本身
     if author == client.user:
-        # 結束這次 function 呼叫 不會發送訊息
-        return
+        return # 忽略這個訊息
+    
+    # 如果這個訊息"不"是 tag 或回覆機器人
+    if not client.user.mentioned_in(message):
+        return # 忽略這個訊息
 
     # 在收到訊息的頻道 發送訊息
-    await message.channel.send("Hello?")
+    await message.channel.send("Hello!")
 
 
 # 讀取 .env 檔案中的環境變數並設定 DC bot token
