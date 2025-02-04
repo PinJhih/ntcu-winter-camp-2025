@@ -30,9 +30,10 @@ chat_session = model.start_chat(history=[])
 while True:
     # 取得在 terminal 輸入的文字
     input_text = input("You: ")
+    print() # 在 terminal 中換行
 
     # 傳送給 Gemini
     response = chat_session.send_message(input_text)
 
     # 將回應顯示在 terminal
-    print("Gemini:", response.text, "\n") # \n 表示換行
+    print("Gemini:", response.text) # \n 表示換行
